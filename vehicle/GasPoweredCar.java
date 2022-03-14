@@ -1,5 +1,5 @@
 package vehicle;
 
-public class GasPoweredCar {
+public abstract class GasPoweredCar {
     
 }
