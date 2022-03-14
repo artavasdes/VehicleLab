@@ -1,5 +1,5 @@
 package vehicle;
 
-public class SelfDriving {
+public interface SelfDriving {
     
 }

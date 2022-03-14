@@ -1,5 +1,5 @@
 package vehicle;
 
-public class Flying {
+public interface Flying {
     
 }
