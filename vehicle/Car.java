@@ -2,10 +2,9 @@ package vehicle;
 import java.util.List;
 
 abstract class Car {
-    public String make;
-    public String model;
-    public double mileage;
-    public double range;
+    private String make;
+    private String model;
+    private double mileage;
 
     //Creates car
     public Car(String make, String model, double startingMileage) throws IllegalArgumentException{
@@ -37,17 +36,6 @@ abstract class Car {
 
     public abstract void drive(double miles);
 
-    //Use folllowing code for drive(double miles) in gas and electric car
-    /*
-            if(miles < 0){
-            throw new IllegalArgumentException("Miles cannot be negative!");
-        }
-        if(miles >= getRemainingRange()){
-            throw new IllegalArgumentException("Not enough fuel!");
-        }
-        this.mileage += miles;
-    */
-
     public String toString(){
         return String.format("%s %s (%5d mi) ", make, model, mileage);
     }
@@ -75,7 +63,18 @@ abstract class Car {
 
     public int roadTrip(List<Double> milesEachDay) throws IllegalArgumentException{
         for(Double miles : milesEachDay){
-
+            if(miles < 0){
+                throw new IllegalArgumentException("Miles for one of the days is negative! Please correct in order to start roadtrip");
+            }
         }
+        int daysDriven = 0;
+
+        for(Double miles : milesEachDay){
+            while(getRemainingRange() >= 0){
+                drive(miles);
+                daysDriven++;
+            }
+        }
+        return daysDriven;
     }
 }
