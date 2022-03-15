@@ -1,14 +1,14 @@
 package vehicle;
 
 public class TeslaModelZ extends ElectricCar{
+    int modelNum;
     public TeslaModelZ(double startingMileage, int modelNum){
-        this.mileage = startingMileage;
+        super("Tesla", "Z", startingMileage, 340);
         this.modelNum = modelNum;
     }
     
     public TeslaModelZ(int modelNum){
-        this.mileage = 0;
-        this.modelNum = modelNum;
+        this(0, modelNum);
     }
 
     public int getModelNum(){
@@ -16,10 +16,6 @@ public class TeslaModelZ extends ElectricCar{
     }
 
     public String getModel(){
-        return model + modelNum; 
-    }
-
-    public String toString(){
-
+        return "Z" + modelNum; 
     }
 }

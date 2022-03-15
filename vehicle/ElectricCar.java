@@ -5,7 +5,7 @@ public abstract class ElectricCar extends Car {
     private double remaingingCharge;
     
     public ElectricCar(String make, String model, double startingMileage, double milesOnMaxCharge){
-        super(make, model, mileage);
+        super(make, model, startingMileage);
         if(milesOnMaxCharge < 0){
             throw new IllegalArgumentException();
         }
@@ -16,15 +16,14 @@ public abstract class ElectricCar extends Car {
     }
 
     public ElectricCar(String make, String model, double milesOnMaxCharge){
-        this(make, model, milesOnMaxCharge);
-        this.mileage = 0;
+        this(make, model, 0, milesOnMaxCharge);
     }
 
     public void drive(double miles){
         if(miles < 0 || miles > getRemainingRange()){
             throw new IllegalArgumentException();
         }
-        mileage += miles;
+        addMileage(miles);
     }
 
     public double getRemainingRange(){
