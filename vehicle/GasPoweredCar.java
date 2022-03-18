@@ -1,40 +1,33 @@
 package vehicle;
 //zsofia
-public abstract class GasPoweredCar {
+public abstract class GasPoweredCar extends Car {
 
-	private String make;
-	private String model;
 	private double currentMiles;
-	private double startingMileage;
 	private double mpg;
 	private double currentFuel;
 	private double fuelCapacityGallons;
 
 	public GasPoweredCar(String make, String model, double startingMileage, double mpg, double fuelCapacityGallons){
+		super(make, model, startingMileage);
 		if(mpg<=0||fuelCapacityGallons<=0)
 			throw new IllegalArgumentException();
-		this.make=make;
-		this.model=model;
-		this.startingMileage=this.currentMiles=startingMileage;
 		this.mpg=mpg;
-		this.currentFuel=this.fuelCapacityGallons=fuelCapacityGallons;		
-
+		this.currentFuel=fuelCapacityGallons;		
 	}
 
 	public GasPoweredCar (String make, String model, double mpg, double fuelCapacityGallons){
+		super(make, model, 0);
 		if(mpg<=0||fuelCapacityGallons<=0)
 			throw new IllegalArgumentException();
-			this.make=make;
-			this.model=model;
-			this.startingMileage=0;
-			this.mpg=mpg;
-			this.fuelCapacityGallons=fuelCapacityGallons;		
+		this.mpg=mpg;
+		this.currentFuel=fuelCapacityGallons;		
 	}
 	
 	public void drive(double miles){
 		if(miles<0||currentFuel/mpg<miles)
 			throw new IllegalArgumentException();
-		currentFuel-=(miles/mpg);
+		//currentFuel-=(miles/mpg);
+		decreaseFuelLevel(miles);
 		currentMiles+=miles;
 	}
 
