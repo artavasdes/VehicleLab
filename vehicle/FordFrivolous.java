@@ -31,7 +31,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(getRemainingRange()<=0){
             throw new IllegalArgumentException("Miles exceeds remaining range!");
         }
-        super.drive(miles);
+        super.decreaseFuelLevel(miles);
         super.decreaseFuelLevel(miles);
         super.decreaseFuelLevel(miles);
     }

@@ -24,6 +24,7 @@ public abstract class ElectricCar extends Car {
             throw new IllegalArgumentException();
         }
         addMileage(miles);
+        decreaseCharge(miles);
     }
 
     public double getRemainingRange(){
