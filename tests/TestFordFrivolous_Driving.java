@@ -2,6 +2,8 @@ package tests;
 
 import vehicle.FordFrivolous;
 import bcatest.BCATestScenario;
+import java.util.List;
+import java.util.Arrays;
 
 public class TestFordFrivolous_Driving extends BCATestScenario {
 
@@ -40,9 +42,11 @@ public class TestFordFrivolous_Driving extends BCATestScenario {
         assertEquals(f1.toString(), "Ford Frivolous (118 mi)", "toString does not match");
         
         //Stopped at row 26 on excel file
-        assertThrows(IllegalArgumentException.class, () -> {f1.roadTrip(50, 50, 50, -100)}, "Mileage in any position of the list cannot be negative");
+        List<Double> list=Arrays.asList(50.0,50.0,50.0,-100.0);
+        assertThrows(IllegalArgumentException.class, () -> {f1.roadTrip(list);}, "Mileage in any position of the list cannot be negative");
         
-        f1.roadTrip(100, 100, 100, 100);
+        List<Double> list2=Arrays.asList(100.0,100.0,100.0,100.0);
+        f1.roadTrip(list2);
         assertEquals(f1.getMileage(), 590, .1, "Mileage should be 590");
         
         assertEquals(f1.getRemainingRange(), 0, .1, "Remaining range should be 0");
@@ -50,7 +54,8 @@ public class TestFordFrivolous_Driving extends BCATestScenario {
         f1.refillTank(10);
         assertEquals(f1.getFuelLevel(), 10, .1, "Fuel level should now be 10");
 
-        f1.roadTrip(100, 100, 36);
+        List<Double> list3=Arrays.asList(100.0,100.0,36.0);
+        f1.roadTrip(list3);
 
         assertEquals(f1.getRemainingRange(), 0, .1, "Remaining range should be 0");
 
