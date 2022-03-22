@@ -50,14 +50,14 @@ public class TestFordFrivolous_Driving extends BCATestScenario {
         assertThrows(IllegalArgumentException.class, () -> {f1.roadTrip(roadTrip1);}, "Mileage in any position of the list cannot be negative");
         
         ArrayList<Double> roadTrip2 = new ArrayList<>();
-        roadTrip2.addAll(Arrays.asList(100.0, 100.0, 100.0, 100.0, 50.0));
+        roadTrip2.addAll(Arrays.asList(100.0, 100.0, 100.0, 100.0, 24.8));
 
         f1.roadTrip(roadTrip2);
-        assertEquals(f1.getMileage(), 590, .1, "Mileage should be 590");
+        assertEquals(f1.getMileage(), 542.8, .1, "Mileage should be 542.8");
         
-        assertEquals(f1.getRemainingRange(), 0, .1, "Remaining range should be 0");
+        assertEquals(f1.getRemainingRange(), 47.2, .1, "Remaining range should be 47.2");
 
-        f1.refillTank(10);
+        f1.refillTank(8);
         assertEquals(f1.getFuelLevel(), 10, .1, "Fuel level should now be 10");
 
         ArrayList<Double> roadTrip3 = new ArrayList<>();

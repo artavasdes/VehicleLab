@@ -56,6 +56,7 @@ public abstract class GasPoweredCar extends Car {
 	public void refillTank(double gallons){
 		if(gallons<0||(currentFuel+gallons>fuelCapacityGallons))
 			throw new IllegalArgumentException();
+		currentFuel+=gallons;
 		
 	}
 
