@@ -70,7 +70,7 @@ abstract class Car {
         int daysDriven = 0;
 
         for(Double miles : milesEachDay){
-            while(getRemainingRange() >= 0){
+            if(canDrive(miles)){
                 drive(miles);
                 daysDriven++;
             }
