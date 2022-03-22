@@ -66,6 +66,18 @@ public class TestFordFrivolous_Driving extends BCATestScenario {
 
         assertEquals(f1.getRemainingRange(), 0, .1, "Remaining range should be 0");
 
+        f1.refillTank();
+
+        f1.fly(118);
+
+        assertEquals(f1.getFuelLevel(), 5.0, .1, "Fuel level should 5.0" );
+
+        f1.refillTank();
+
+        f1.driveAutonomously(118);
+
+        assertEquals(f1.getFuelLevel(), 10.0, .1, "Fuel level should be 10.0");
+
         return getFailedCount();
     }
 }
