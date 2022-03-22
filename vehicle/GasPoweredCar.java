@@ -12,8 +12,7 @@ public abstract class GasPoweredCar extends Car {
 		if(mpg<=0||fuelCapacityGallons<=0)
 			throw new IllegalArgumentException();
 		this.mpg=mpg;
-		this.currentFuel=fuelCapacityGallons;	
-		this.fuelCapacityGallons = fuelCapacityGallons;
+		this.currentFuel=fuelCapacityGallons;		
 	}
 
 	public GasPoweredCar (String make, String model, double mpg, double fuelCapacityGallons){
@@ -21,16 +20,15 @@ public abstract class GasPoweredCar extends Car {
 		if(mpg<=0||fuelCapacityGallons<=0)
 			throw new IllegalArgumentException();
 		this.mpg=mpg;
-		this.currentFuel=fuelCapacityGallons;	
-		this.fuelCapacityGallons = fuelCapacityGallons;	
+		this.currentFuel=fuelCapacityGallons;		
 	}
 	
 	public void drive(double miles){
-		if(miles<0||(currentFuel * mpg) < miles)
+		if(miles<0||currentFuel/mpg<miles)
 			throw new IllegalArgumentException();
 		//currentFuel-=(miles/mpg);
 		decreaseFuelLevel(miles);
-		addMileage(miles);
+		currentMiles+=miles;
 	}
 
 	public double getMPG(){
@@ -50,7 +48,7 @@ public abstract class GasPoweredCar extends Car {
 	}
 	
 	public double getRemainingRange(){
-		return (currentFuel * mpg);
+		return (currentFuel/mpg);
 	}
 
 	public void refillTank(double gallons){

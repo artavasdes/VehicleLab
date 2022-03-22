@@ -29,7 +29,7 @@ public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
 		c1.recharge();
 		assertEquals(c1.getRemainingRange(), 250.0, .1, "Remianing range should be 250");
 	
-		assertEquals(c1.toString(), "Chevrolet Bird (200 mi)", "toString does not match");
+		assertEquals(c1.toString(), "Chevrolet Bird (200.0 mi)", "toString does not match");
 		
 		List<Double> list=Arrays.asList(50.0,50.0,50.0,-100.0);
 		assertThrows(IllegalArgumentException.class, () -> {c1.roadTrip(list);}, "Mileage in any position of the list cannot be negative");
