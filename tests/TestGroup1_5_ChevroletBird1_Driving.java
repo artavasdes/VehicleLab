@@ -22,12 +22,12 @@ public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
 	
 		c1.drive(200);
 	
-		assertEquals(c1.getMileage(), 200, .1, "Mileage should be 200");
+		assertEquals(c1.getMileage(), 200.0, .1, "Mileage should be 200");
 	
-		assertEquals(c1.getRemainingRange(), 50, .1, "Remaingin range should be 50");
+		assertEquals(c1.getRemainingRange(), 50.0, .1, "Remaingin range should be 50");
 	
 		c1.recharge();
-		assertEquals(c1.getRemainingRange(), 250, .1, "Remianing range should be 250");
+		assertEquals(c1.getRemainingRange(), 250.0, .1, "Remianing range should be 250");
 	
 		assertEquals(c1.toString(), "Chevrolet Bird (200 mi)", "toString does not match");
 		
@@ -36,12 +36,12 @@ public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
 		
 		List<Double> list2=Arrays.asList(50.0,50.0,50.0,100.0);
 		c1.roadTrip(list2);
-		assertEquals(c1.getMileage(), 450, .1, "Mileage should be 450");
+		assertEquals(c1.getMileage(), 450.0, .1, "Mileage should be 450");
 		
-		assertEquals(c1.getRemainingRange(), 0, .1, "Remaining range should be 0");
+		assertEquals(c1.getRemainingRange(), 0.0, .1, "Remaining range should be 0");
 	
 		c1.recharge();
-		assertEquals(c1.getRemainingRange(), 250, .1, "remaining range should now be 250");
+		assertEquals(c1.getRemainingRange(), 250.0, .1, "remaining range should now be 250");
 		
 		assertThrows(IllegalArgumentException.class,()->{c1.drive(300);},"should throw IllegalArgumentExcpetion, out of range");
 	
