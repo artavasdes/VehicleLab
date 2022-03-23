@@ -28,7 +28,7 @@ public abstract class GasPoweredCar extends Car {
 		if(miles<0||currentFuel*mpg<miles)
 			throw new IllegalArgumentException();
 		decreaseFuelLevel(miles);
-		mileage+=miles;
+		addMileage(miles);
 	}
 
 	public double getMPG(){
