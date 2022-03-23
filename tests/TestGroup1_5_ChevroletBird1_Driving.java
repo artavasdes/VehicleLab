@@ -62,6 +62,8 @@ public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
 		c1.drive(2);
 
 		assertFalse(c1.checkWingsExtended(),"wings should be extended");
+
+		assertEquals(c1.getMileage(), 452.0, .1, "Mileage should be 452");
 		
 
 		return getFailedCount();
