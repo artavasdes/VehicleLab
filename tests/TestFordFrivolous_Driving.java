@@ -68,9 +68,13 @@ public class TestFordFrivolous_Driving extends BCATestScenario {
 
         f1.refillTank();
 
+        assertEquals(f1.getMileage(), 778.8, .1, "Mileage should be 778.8");
+
         f1.fly(118);
 
         assertEquals(f1.getFuelLevel(), 5.0, .1, "Fuel level should 5.0" );
+
+        assertEquals(f1.getMileage(), 778.8, .1, "Mileage should be 778.8");
 
         f1.refillTank();
 
