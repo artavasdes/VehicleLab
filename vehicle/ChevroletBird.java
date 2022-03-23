@@ -28,7 +28,11 @@ public class ChevroletBird extends ElectricCar implements Flying {
 	public boolean canFly(double miles) {
 		if(miles<0)
 			throw new IllegalArgumentException();
+		if(miles>getRemainingRange())
+			return false;
 		return true;
+		
+		
 	}
 
 	@Override

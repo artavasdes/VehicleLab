@@ -44,8 +44,26 @@ public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
 		assertEquals(c1.getRemainingRange(), 250.0, .1, "remaining range should now be 250");
 		
 		assertThrows(IllegalArgumentException.class,()->{c1.drive(300);},"should throw IllegalArgumentExcpetion, out of range");
+
+		assertThrows(IllegalArgumentException.class,()->{c1.canFly(-5);},"should throw IllegalArgumentException for negative miles.");
 	
-	
+		assertFalse(c1.canFly(300),"should return false, out of range");
+
+		assertTrue(c1.canFly(250),"should return true");
+
+		assertThrows(IllegalArgumentException.class,()->{c1.fly(-10);},"should throw IllegalArgumentException for negative miles");
+
+		assertThrows(IllegalArgumentException.class,()->{c1.fly(300);},"should throw IllegalArgumentException, out of range");
+
+		c1.fly(200);
+
+		assertTrue(c1.checkWingsExtended(),"wings should be extended");
+
+		c1.drive(2);
+
+		assertFalse(c1.checkWingsExtended(),"wings should be extended");
+		
+
 		return getFailedCount();
 	    }
 	
