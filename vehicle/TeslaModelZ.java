@@ -19,6 +19,10 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
         return "Z" + modelNum; 
     }
 
+    public String toString(){
+        return String.format("Tesla %s (%.1f mi)", getModel(),((Car)this).getMileage());
+    }
+
     public void driveAutonomously(double miles){
         if(miles < 0){
             throw new IllegalArgumentException();
