@@ -4,7 +4,7 @@ import bcatest.BCATestScenario;
 import java.util.List;
 import java.util.Arrays;
 
-public class TestGroup1_5_ChevroletBird1_Driving extends BCATestScenario {
+public class Group1_5_ChevroletBird1_Driving extends BCATestScenario {
 	public int runTest() {
 		assertThrows(IllegalArgumentException.class, () -> {new ChevroletBird(-100);}, "Starting mileage cannot be negative.");
 	

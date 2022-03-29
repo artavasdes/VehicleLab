@@ -6,7 +6,7 @@ import java.util.Arrays;
 import bcatest.BCATestScenario;
 import vehicle.FordFrivolous;
 
-public class TestFordFrivolous_Driving extends BCATestScenario {
+public class Group1_5TestFordFrivolous_Driving extends BCATestScenario {
 
 
     public int runTest() {
