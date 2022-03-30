@@ -13,8 +13,24 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0){
             throw new IllegalArgumentException("Miles cannot be negative!");
         }
+        if(miles*2>=getRemainingRange()){
+            throw new IllegalArgumentException("Not enough fuel!");
+        }
         super.drive(miles);
         super.decreaseFuelLevel(miles);
+
+        // if(miles < 0 || miles*2 > getRemainingRange()){
+        //     throw new IllegalArgumentException();
+        // }
+
+        // if(miles * 2> getRemainingRange()){
+        //     super.addMileage(getRemainingRange());
+        //     super.drive(getRemainingRange());
+        // }
+        // else if(miles * 2 < getRemainingRange()){
+        //     super.addMileage(miles);
+        //     super.drive(miles);
+        // }
     }
 
     public boolean canFly(double miles){
