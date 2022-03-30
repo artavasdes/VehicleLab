@@ -41,7 +41,6 @@ public class Group1_1HondaAccordian4 extends BCATestScenario{
         // 80.006
         assertEquals(h.getRemainingRange(), 20, .1, "Unexpected remaining range after driving");
         List<Double> list3 = List.of(5.0, 20.0, 10.0);
-
         assertEquals(h.roadTrip(list3), 1, .1, "Unexpected # of days in road trip");
         assertEquals(h.getMileage(), 468.4, .1, "Unexpected mileage amount after recovering from exception");
 
