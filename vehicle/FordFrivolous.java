@@ -19,7 +19,10 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
 
     public boolean canFly(double miles){
         if(miles < 0){
-            throw new IllegalArgumentException("Miles cannot be negative!");
+            throw new IllegalArgumentException("mileage cannot be negative");
+        }
+        if(miles*3>getRemainingRange()){
+            return false;
         }
         return true;
     }
@@ -28,7 +31,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying{
         if(miles < 0){
             throw new IllegalArgumentException("Miles cannot be negative!");
         }
-        if(getRemainingRange()<=0){
+        if(miles>getRemainingRange()){
             throw new IllegalArgumentException("Miles exceeds remaining range!");
         }
         super.decreaseFuelLevel(miles);
