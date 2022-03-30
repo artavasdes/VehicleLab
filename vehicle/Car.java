@@ -28,10 +28,10 @@ abstract class Car {
         if(miles < 0){
             throw new IllegalArgumentException("Miles cannot be negative!");
         }
-        if(getRemainingRange() >= miles){
-            return true;
+        if(getRemainingRange() <= miles){
+            return false;
         }
-        return false;
+        return true;
     }
 
     public abstract void drive(double miles);
@@ -73,8 +73,11 @@ abstract class Car {
             if(canDrive(miles)){
                 drive(miles);
                 daysDriven++;
+            } else {
+                return daysDriven;
             }
         }
+
         return daysDriven;
     }
 }

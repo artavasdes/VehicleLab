@@ -2,7 +2,6 @@ package vehicle;
 //zsofia
 public abstract class GasPoweredCar extends Car {
 
-	private double mileage;
 	private double mpg;
 	private double currentFuel;
 	private double fuelCapacityGallons;
