@@ -29,10 +29,10 @@ public class TeslaModelZ extends ElectricCar implements SelfDriving{
         }
 
         if(miles > getRemainingRange()){
-            super.drive(getRemainingRange());
+            drive(getRemainingRange());
         }
-        else if(miles < getRemainingRange()){
-            super.drive(miles);
+        else if(miles <= getRemainingRange()){
+            drive(miles);
         }
     }
 }
